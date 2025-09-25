@@ -134,20 +134,20 @@ const newsItems = [
     title: 'Nuevo Sistema de Combate',
     description:
       'Descubre las mejoras en el sistema de combate que harán las batallas más épicas y dinámicas.',
-    img: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+    img: 'https://imgs.search.brave.com/k7eWTm-tM7ZpHeN3f1jIjd1mgvo6uaYI1sayS74a7zc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS81/YzFiYjk5N2NiMWRk/NjExYTBlNmM4Y2Uv/NjA0MTIxNjcyYTE3/OGUxZDYxMTAyN2U4/X1dlc3RTdHVkaW9f/TE9MX1NwbGFzaF8z/Ny5qcGc',
     date: '25 Sep 2025',
   },
   {
     title: 'Exploración Expandida',
     description: 'Nuevas áreas por descubrir y secretos por encontrar en la próxima actualización.',
-    img: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+    img: 'https://imgs.search.brave.com/9uApCP3LkCMCPHYu0gM7dyhcUsJPJg6C-HByF70yWXY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS81/YzFiYjk5N2NiMWRk/NjExYTBlNmM4Y2Uv/NWUyMjQ4OTY3YjE4/YjU5NDNjOGJlNzhh/X1dlc3RTdHVkaW9f/TE9MX1NwbGFzaF8w/OS5qcGc',
     date: '24 Sep 2025',
   },
   {
     title: 'Evento Especial',
     description:
       'Prepárate para un evento único que cambiará el destino de tu personaje para siempre.',
-    img: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+    img: 'https://imgs.search.brave.com/50nTwnDMo8OrYjdhKaqMkEfeMJtJ3RECKomUGqUib3A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS81/YzFiYjk5N2NiMWRk/NjExYTBlNmM4Y2Uv/NWUyMjQ3YTk0OWNk/MjQ2MTcxMmIxNjk4/X1dlc3RTdHVkaW9f/TE9MX1NwbGFzaF8w/Ny5qcGc',
     date: '23 Sep 2025',
   },
 ]

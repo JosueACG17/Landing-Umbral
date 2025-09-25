@@ -93,10 +93,15 @@
         <div
           class="relative w-[340px] h-[340px] md:w-[420px] md:h-[420px] flex items-center justify-center"
         >
+          <!-- Círculo decorativo -->
+          <div
+            class="absolute w-full h-full rounded-full bg-gradient-to-r from-yellow-500/30 to-yellow-700/30 animate-pulse"
+          ></div>
+          <div class="absolute w-[95%] h-[95%] rounded-full border-2 border-yellow-500/50"></div>
           <img
             :src="selected.img"
             :alt="selected.name"
-            class="relative z-10 w-[490px] h-[650px] object-contain select-none"
+            class="relative z-10 w-[490px] h-[450px] object-contain select-none"
             draggable="false"
           />
         </div>
@@ -111,14 +116,12 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import {
-  BoltIcon,
-  UserGroupIcon,
-  SparklesIcon,
-  EyeDropperIcon,
-  HeartIcon,
-  ShieldCheckIcon,
-} from '@heroicons/vue/24/solid'
+import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon } from '@heroicons/vue/24/solid'
+
+import vikingoImage from '@/assets/vikingo_game.png'
+import gladiadorImage from '@/assets/gladiador_game.png'
+import magoImage from '@/assets/mago_game.png'
+import tiradorImage from '@/assets/tirador_game.png'
 
 const roles = [
   {
@@ -127,7 +130,7 @@ const roles = [
     character: {
       name: 'EL SOMBRA',
       description: 'Cazador de las tinieblas eternas',
-      img: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/befd42ad6d2564159a441d08cfc3bf511532eb74-1628x1628.png?auto=format&fit=fill&q=80&w=1128',
+      img: vikingoImage,
     },
   },
   {
@@ -136,16 +139,16 @@ const roles = [
     character: {
       name: 'EL FORJADOR',
       description: 'Maestro de las armas ancestrales',
-      img: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/70c26e49de8a2c79ac3de144772d2debd195edff-1628x1628.png?auto=format&fit=fill&q=80&w=870',
+      img: gladiadorImage,
     },
   },
   {
     name: 'MAGOS',
     icon: SparklesIcon,
     character: {
-      name: 'LA HECHICERA',
-      description: 'Guardiana de los secretos arcanos',
-      img: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/ff6c8c57411e5c7e0551b02334fccedc78866143-1628x1628.png?auto=format&fit=fill&q=80&w=870',
+      name: 'EL HECHICERO',
+      description: 'Guardian de los secretos arcanos',
+      img: magoImage,
     },
   },
   {
@@ -154,25 +157,7 @@ const roles = [
     character: {
       name: 'EL TIRADOR',
       description: 'Precisión letal desde la distancia',
-      img: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/f136500bd46f823d37515a72b867425d3a0b3e54-1628x1628.png?auto=format&fit=fill&q=80&w=870',
-    },
-  },
-  {
-    name: 'SOPORTES',
-    icon: HeartIcon,
-    character: {
-      name: 'EL GUARDIÁN',
-      description: 'Protector y apoyo del equipo',
-      img: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/95daf6dd2b28f03d5ba2ea1fabbabc3bc3ff6e6e-1628x1628.png?auto=format&fit=fill&q=80&w=870',
-    },
-  },
-  {
-    name: 'TANQUES',
-    icon: ShieldCheckIcon,
-    character: {
-      name: 'EL TITÁN',
-      description: 'Resistencia y defensa inquebrantable',
-      img: 'https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/dbdded937cd214bb2a1189697a9e4f49f8c04505-1628x1628.png?auto=format&fit=fill&q=80&w=870',
+      img: tiradorImage,
     },
   },
 ]
