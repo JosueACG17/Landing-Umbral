@@ -33,7 +33,7 @@
 
       <!-- Título principal -->
       <h2
-        class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-4"
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-4 px-4"
         style="font-family: 'Cinzel', serif"
       >
         ¡Bienvenido a UMBRAL!
@@ -41,7 +41,7 @@
 
       <!-- Texto descriptivo -->
       <p
-        class="text-xl text-yellow-200/90 text-center max-w-2xl mx-auto px-4 leading-relaxed"
+        class="text-lg sm:text-xl text-yellow-200/90 text-center max-w-2xl mx-auto px-4 sm:px-6 leading-relaxed"
         style="font-family: 'Montserrat', sans-serif"
       >
         Prepárate para una experiencia épica en un mundo de fantasía oscura donde cada decisión

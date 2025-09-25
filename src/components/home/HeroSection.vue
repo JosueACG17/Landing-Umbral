@@ -38,7 +38,7 @@
         <!-- Título principal -->
         <div class="space-y-6 max-w-4xl">
           <h1
-            class="text-8xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-600 mb-4 tracking-tight leading-none fade-in"
+            class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-600 mb-4 tracking-tight leading-none fade-in"
             style="
               animation-delay: 0.1s;
               text-shadow: 0 0 40px rgba(234, 179, 8, 0.3);
@@ -49,7 +49,7 @@
           </h1>
 
           <p
-            class="text-3xl md:text-4xl text-yellow-200 font-light tracking-wider mb-2 slide-up opacity-0"
+            class="text-2xl sm:text-3xl md:text-4xl text-yellow-200 font-light tracking-wider mb-2 slide-up opacity-0"
             style="
               animation-delay: 0.3s;
               letter-spacing: 0.2em;
@@ -66,7 +66,7 @@
           ></div>
 
           <p
-            class="text-2xl md:text-3xl text-yellow-300/90 font-medium mt-6 max-w-2xl mx-auto leading-relaxed fade-in"
+            class="text-xl sm:text-2xl md:text-3xl text-yellow-300/90 font-medium mt-6 max-w-2xl mx-auto leading-relaxed fade-in px-4"
             style="animation-delay: 0.5s; font-family: 'Montserrat', sans-serif"
           >
             Forja tu destino en el Reino de las Sombras
