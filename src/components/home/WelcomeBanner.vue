@@ -33,7 +33,7 @@
 
       <!-- Título principal -->
       <h2
-        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-4 px-4"
+        class="text-2xl lg:text-5xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-4 px-4"
         style="font-family: 'Cinzel', serif"
       >
         ¡Bienvenido a UMBRAL!
