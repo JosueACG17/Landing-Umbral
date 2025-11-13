@@ -121,7 +121,7 @@
         >
           <div class="relative rounded-lg overflow-hidden shadow-2xl">
             <img
-              src="@/assets/juego.jpeg"
+              src="@/assets/Juego.jpeg"
               alt="Características del Juego"
               class="w-full h-auto object-cover"
             />
