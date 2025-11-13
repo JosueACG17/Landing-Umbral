@@ -120,13 +120,11 @@
           style="animation-delay: 0.6s"
         >
           <div class="relative rounded-lg overflow-hidden shadow-2xl">
-            <iframe
-              src="https://www.youtube.com/embed/YkIrHw15X-g?autoplay=1&mute=1&loop=1&playlist=YkIrHw15X-g"
-              frameborder="0"
-              allow="autoplay; encrypted-media"
-              allowfullscreen
-              class="w-full aspect-video"
-            ></iframe>
+            <img
+              src="@/assets/juego.jpeg"
+              alt="Características del Juego"
+              class="w-full h-auto object-cover"
+            />
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
 

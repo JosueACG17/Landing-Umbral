@@ -1,19 +1,19 @@
 <template>
   <header class="relative">
     <!-- Barra de navegación -->
-  <nav
+    <nav
       class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-yellow-600 shadow-xl"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-18">
           <!-- Logo -->
-          <div class="flex items-center">
+          <a href="#inicio" class="flex items-center">
             <img
               src="@/assets/LogoUmbral.png"
               alt="Logo Umbral"
               class="h-26 w-auto drop-shadow-lg"
             />
-          </div>
+          </a>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:block">
@@ -99,9 +99,8 @@ const isMenuOpen = ref(false)
 
 const navItems = [
   { href: '#inicio', text: 'INICIO' },
-  { href: '#informacion', text: 'INFORMACIÓN GENERAL' },
+  { href: '#campeones', text: 'CAMPEONES' },
+  { href: '#informacion', text: 'CARACTERISTICAS' },
   { href: '#noticias', text: 'NOTICIAS' },
-  { href: '#tienda', text: 'TIENDA' },
-  { href: '#soporte', text: 'SOPORTE TÉCNICO' },
 ]
 </script>

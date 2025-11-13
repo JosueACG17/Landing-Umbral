@@ -1,6 +1,6 @@
 <template>
   <section
-    id="personajes"
+    id="campeones"
     class="py-20 bg-gradient-to-b from-black via-gray-950 to-gray-900 flex justify-center items-center overflow-hidden"
   >
     <div
@@ -32,18 +32,6 @@
           Ya sea que prefieras lanzarte directo a la batalla, apoyar a tus compañeros de equipo, o
           algo intermedio, hay un lugar para ti en el Reino.
         </p>
-        <div class="flex flex-row gap-4 mb-8">
-          <button
-            class="px-8 py-3 cursor-pointer bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800 hover:text-white text-black font-bold rounded-xl shadow-lg card-hover border border-yellow-600 transition-all"
-          >
-            DESCUBRIR MÁS CAMPEONES
-          </button>
-          <button
-            class="px-8 py-3 cursor-pointer bg-gradient-to-r from-yellow-700 to-yellow-500 hover:from-yellow-800 hover:to-yellow-600 hover:text-white text-black font-bold rounded-xl shadow-lg card-hover border border-yellow-600 transition-all"
-          >
-            JUEGA AHORA
-          </button>
-        </div>
         <div class="flex flex-row flex-wrap gap-8 justify-center md:justify-start mt-8">
           <button
             v-for="(role, idx) in roles"
