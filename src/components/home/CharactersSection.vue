@@ -29,8 +29,9 @@
           class="text-base sm:text-lg text-gray-300 mb-6 max-w-md slide-up"
           style="animation-delay: 0.2s"
         >
-          Ya sea que prefieras lanzarte directo a la batalla, apoyar a tus compañeros de equipo, o
-          algo intermedio, hay un lugar para ti en el Reino.
+          Cada personaje tiene una historia y un rol fundamental en la batalla.
+          Elige tu favorito, domina su estilo y llega a la victoria.
+          ¿Serás el estratega, el protector, el mago o el tirador letal? ¡El destino del Reino está en tus manos!
         </p>
         <div class="flex flex-row flex-wrap gap-8 justify-center md:justify-start mt-8">
           <button
@@ -89,7 +90,12 @@
           <img
             :src="selected.img"
             :alt="selected.name"
-            class="relative z-10 w-[490px] h-[450px] object-contain select-none"
+            :class="[
+              'relative z-10 object-contain select-none',
+              selected.class
+                ? selected.class
+                : 'w-[380px] h-[380px] sm:w-[320px] sm:h-[320px] md:w-[450px] md:h-[470px]',
+            ]"
             draggable="false"
           />
         </div>
@@ -106,46 +112,47 @@
 import { ref, computed } from 'vue'
 import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon } from '@heroicons/vue/24/solid'
 
-import vikingoImage from '@/assets/vikingo_game.png'
-import gladiadorImage from '@/assets/gladiador_game.png'
-import magoImage from '@/assets/mago_game.png'
-import tiradorImage from '@/assets/tirador_game.png'
+import vikingoImage from '@/assets/Berserker.png'
+import gladiadorImage from '@/assets/Tanque.png'
+import magoImage from '@/assets/Mago.png'
+import tiradorImage from '@/assets/Arquero.png'
 
 const roles = [
   {
-    name: 'ASESINOS',
+    name: 'Berserker',
     icon: BoltIcon,
     character: {
-      name: 'EL SOMBRA',
+      name: 'GRAK',
       description: 'Cazador de las tinieblas eternas',
       img: vikingoImage,
     },
   },
   {
-    name: 'LUCHADORES',
+    name: 'Tanque',
     icon: UserGroupIcon,
     character: {
-      name: 'EL FORJADOR',
+      name: 'HAROLD',
       description: 'Maestro de las armas ancestrales',
       img: gladiadorImage,
     },
   },
   {
-    name: 'MAGOS',
+    name: 'Mago',
     icon: SparklesIcon,
     character: {
-      name: 'EL HECHICERO',
+      name: 'ELANDOR',
       description: 'Guardian de los secretos arcanos',
       img: magoImage,
     },
   },
   {
-    name: 'TIRADORES',
+    name: 'Tirador',
     icon: EyeDropperIcon,
     character: {
-      name: 'EL TIRADOR',
+      name: 'KAITO',
       description: 'Precisión letal desde la distancia',
       img: tiradorImage,
+      class: 'w-[340px] h-[300px] sm:w-[300px] sm:h-[270px] md:w-[400px] md:h-[350px]',
     },
   },
 ]
