@@ -119,7 +119,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon } from '@heroicons/vue/24/solid'
 
 import vikingoImage from '@/assets/Berserker.png'
@@ -171,6 +171,14 @@ const roles = [
 ]
 const selectedIdx = ref(0)
 const selected = computed(() => roles[selectedIdx.value].character)
+
+onMounted(() => {
+  roles.forEach(r => {
+    const img = new Image()
+    img.src = r.character.img
+  })
+})
+
 </script>
 
 <style scoped>
