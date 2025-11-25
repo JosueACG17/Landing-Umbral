@@ -16,7 +16,7 @@ import HeroSection from '@/components/home/HeroSection.vue'
 import WelcomeBanner from '@/components/home/WelcomeBanner.vue'
 import CharactersSection from '@/components/home/CharactersSection.vue'
 import FeaturesComponent from '@/components/home/FeaturesComponent.vue'
-import NewsComponent from '@/components/home/NewsComponent.vue'
+import NewsComponent from '@/components/home/AppComponent.vue'
 import FooterSection from '@/components/home/FooterSection.vue'
 </script>
 
