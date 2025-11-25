@@ -122,9 +122,9 @@
 import { ref, computed, onMounted } from 'vue'
 import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon } from '@heroicons/vue/24/solid'
 
-import vikingoImage from '@/assets/Berserker.png'
-import gladiadorImage from '@/assets/Tanque.png'
-import magoImage from '@/assets/Mago.png'
+import vikingoImage from '@/assets/Berserkerr.png'
+import gladiadorImage from '@/assets/Tanquee.png'
+import magoImage from '@/assets/Magoo.png'
 import tiradorImage from '@/assets/Arquero.png'
 
 const roles = [
