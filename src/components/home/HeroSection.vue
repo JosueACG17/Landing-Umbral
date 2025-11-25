@@ -9,7 +9,7 @@
           class="w-full h-full object-cover scale-110 brightness-75 transform transition-transform duration-[3s] hover:scale-105"
         />
         <!-- Overlays para profundidad -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
 
         <!-- Efecto de patrón de rejilla -->
         <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
@@ -17,6 +17,7 @@
         <!-- Partículas flotantes -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
           <div class="particles-container">
+            <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
@@ -168,6 +169,11 @@
 .particle:nth-child(10) {
   left: 15%;
   animation-delay: 18s;
+}
+
+.particle:nth-child(11) {
+  left: 50%;
+  animation-delay: 20s;
 }
 
 @keyframes float {
