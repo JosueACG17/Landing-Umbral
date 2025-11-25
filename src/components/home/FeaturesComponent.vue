@@ -1,6 +1,6 @@
 <template>
   <section
-    id="informacion"
+    id="caracteristicas"
     class="py-20 bg-gradient-to-b from-black via-gray-950 to-black relative overflow-hidden"
     ref="sectionRef"
   >

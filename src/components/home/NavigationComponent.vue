@@ -100,7 +100,7 @@ const isMenuOpen = ref(false)
 const navItems = [
   { href: '#inicio', text: 'INICIO' },
   { href: '#campeones', text: 'CAMPEONES' },
-  { href: '#informacion', text: 'CARACTERISTICAS' },
-  { href: '#noticias', text: 'NOTICIAS' },
+  { href: '#caracteristicas', text: 'CARACTERISTICAS' },
+  { href: '#app-movil', text: 'APP MÓVIL' },
 ]
 </script>
