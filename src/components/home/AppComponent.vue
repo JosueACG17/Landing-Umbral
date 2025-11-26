@@ -112,12 +112,33 @@
                 {{ feature.title }}
               </h3>
               <p
-                class="text-yellow-200/80 leading-relaxed group-hover:text-yellow-200 transition-colors duration-300"
+                class="text-yellow-200/80 leading-relaxed group-hover:text-yellow-200 transition-colors duration-300 text-sm lg:text-base"
                 style="font-family: 'Montserrat', sans-serif"
               >
                 {{ feature.description }}
               </p>
             </div>
+          </div>
+          <!-- Botón de descarga -->
+          <div class="mt-10 flex justify-center">
+            <a
+              href="https://tu-link.com/download"
+              target="_blank"
+              class="group relative px-10 py-4 rounded-2xl font-bold text-lg text-black bg-yellow-400 shadow-[0_0_25px_rgba(234,179,8,0.5)] hover:shadow-[0_0_45px_rgba(234,179,8,0.8)] transition-all duration-300 overflow-hidden"
+              style="font-family: 'Cinzel', serif"
+            >
+              <span class="relative z-10" style="font-family: 'Montserrat', sans-serif">Descargar App</span>
+
+              <!-- Efecto brillo -->
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+              ></div>
+
+              <!-- Shine animation -->
+              <div
+                class="absolute top-0 left-0 w-1/3 h-full bg-white/40 blur-xl translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-700"
+              ></div>
+            </a>
           </div>
         </div>
       </div>
@@ -127,37 +148,40 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
-// IMPORTANDO HEROICONS VERDADEROS
-import { SparklesIcon, ArrowPathIcon, BellAlertIcon, CloudIcon } from '@heroicons/vue/24/solid'
+import {
+  CalendarDaysIcon,
+  BookOpenIcon,
+  BellAlertIcon,
+  ChartBarIcon,
+} from '@heroicons/vue/24/solid'
+import AppUmbral from '@/assets/Umbral2.jpg'
 
 const titleRef = ref<HTMLElement | null>(null)
-
-// Imagen temporal — cámbiala luego
-const appScreenshot = ref('https://placehold.co/600x1200/1a1a1a/eab308?text=Tu+App+Aqui')
+const appScreenshot = ref(AppUmbral)
 
 const features = [
   {
-    title: 'Juega en Cualquier Lugar',
+    title: 'Eventos del Juego',
     description:
-      'Lleva tu aventura contigo y juega donde quieras con controles optimizados para móvil.',
-    icon: SparklesIcon,
+      'Consulta los eventos activos, revisa sus detalles y mantente actualizado con todo lo que sucede en el mundo del Umbral.',
+    icon: CalendarDaysIcon,
   },
   {
-    title: 'Sincronización en Tiempo Real',
-    description: 'Tu progreso se sincroniza automáticamente entre todos tus dispositivos.',
-    icon: ArrowPathIcon,
+    title: 'Guías y Contenido Oficial',
+    description:
+      'Explora guías y recursos exclusivos que te ayudarán a mejorar tu experiencia y dominar cada mecánica del juego.',
+    icon: BookOpenIcon,
   },
   {
-    title: 'Notificaciones Inteligentes',
-    description:
-      'Recibe alertas sobre eventos especiales, recompensas y actualizaciones importantes.',
+    title: 'Notificaciones Relevantes',
+    description: 'Recibe alertas sobre avisos importantes directamente del juego.',
     icon: BellAlertIcon,
   },
   {
-    title: 'Modo Offline',
-    description: 'Disfruta de ciertas características incluso sin conexión a internet.',
-    icon: CloudIcon,
+    title: 'Estadísticas y Progreso',
+    description:
+      'Consulta tu nivel, avances, revisiones pendientes y métricas clave que reflejan tu progreso dentro del juego.',
+    icon: ChartBarIcon,
   },
 ]
 </script>
