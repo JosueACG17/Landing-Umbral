@@ -4,7 +4,7 @@
     <div class="absolute inset-0 z-0">
       <div class="relative w-full h-full">
         <img
-          src="../../../public/Fondo_Hero.jpg"
+          src="/Fondo_Hero.jpg"
           alt="Gothic Castle Interior"
           class="w-full h-full object-cover object-center scale-110 brightness-75 transform transition-transform duration-[3s] hover:scale-105"
         />
