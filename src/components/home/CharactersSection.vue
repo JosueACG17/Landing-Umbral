@@ -40,7 +40,7 @@
         <transition name="fade" mode="out-in">
           <h2
             :key="showVillains ? 'villains-title' : 'heroes-title'"
-            class="text-5xl sm:text-6xl font-extrabold mb-4 drop-shadow"
+            class="text-4xl sm:text-6xl font-extrabold mb-4 drop-shadow"
             :class="showVillains ? 'text-red-500' : 'text-yellow-400'"
             style="
               font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
@@ -52,11 +52,10 @@
             </span>
           </h2>
         </transition>
-
         <transition name="fade" mode="out-in">
           <p
             :key="showVillains ? 'villains-desc' : 'heroes-desc'"
-            class="text-base sm:text-lg text-gray-300 mb-6 max-w-md "
+            class="text-base  text-gray-300 mb-6 max-w-md "
           >
             {{ showVillains
               ? 'Las sombras también tienen sus enemigos. Cada uno tiene una sed de caos. ¿Te atreves a desatar la oscuridad?'

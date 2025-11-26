@@ -32,11 +32,12 @@
 
           <!-- CTA Button -->
           <div class="hidden md:block">
-            <button
-              class="bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800 px-6 py-2 rounded-xl text-sm font-bold text-black shadow-lg transition-all border border-yellow-600"
+            <a
+              href="#caracteristicas"
+              class="cursor-pointer bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800 px-6 py-2 rounded-xl text-sm font-bold text-black shadow-lg transition-all border border-yellow-600"
             >
-              COMPRAR AHORA
-            </button>
+              MECÁNICAS
+            </a>
           </div>
 
           <!-- Mobile menu button -->
@@ -80,12 +81,13 @@
           >
             {{ item.text }}
           </a>
-          <button
+          <a
+            href="#caracteristicas"
             @click="isMenuOpen = false"
-            class="w-full text-left px-3 py-2 bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800 text-black font-bold rounded-xl mt-2 border border-yellow-600 transition-all"
+            class="block w-full text-left px-3 py-2 bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800 text-black font-bold rounded-xl mt-2 border border-yellow-600 transition-all"
           >
-            COMPRAR AHORA
-          </button>
+            MECÁNICAS
+          </a>
         </div>
       </div>
     </transition>
@@ -99,8 +101,8 @@ const isMenuOpen = ref(false)
 
 const navItems = [
   { href: '#inicio', text: 'INICIO' },
-  { href: '#campeones', text: 'CAMPEONES' },
-  { href: '#caracteristicas', text: 'CARACTERISTICAS' },
+  { href: '#campeones', text: 'CAZADORES' },
+  { href: '#caracteristicas', text: 'CARACTERÍSTICAS' },
   { href: '#app-movil', text: 'APP MÓVIL' },
 ]
 </script>
