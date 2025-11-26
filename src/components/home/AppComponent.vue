@@ -48,7 +48,6 @@
             <div
               class="relative w-[220px] h-[450px] bg-black rounded-[45px] p-3 shadow-2xl transform-3d hover:rotate-y-5 transition-all duration-500"
             >
-              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-6 bg-black rounded-b-3xl z-20"></div>
 
               <div class="absolute inset-0 rounded-[45px] border-2 border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.3)]"></div>
               <div class="absolute inset-[2px] rounded-[43px] border border-yellow-400/20"></div>
@@ -145,20 +144,20 @@ const features = [
     icon: CalendarDaysIcon,
   },
   {
-    title: 'Guías y Contenido Oficial',
+    title: 'Guías Oficiales',
     description:
-      'Explora guías y recursos exclusivos que te ayudarán a mejorar tu experiencia y dominar cada mecánica del juego.',
+      'Explora guías oficiales y comparte tu experiencia comentando. Aprende, mejora y participa junto con la comunidad.',
     icon: BookOpenIcon,
   },
   {
     title: 'Notificaciones Relevantes',
-    description: 'Recibe alertas sobre avisos importantes directamente del juego.',
+    description: 'Recibe alertas sobre avisos importantes del juego.',
     icon: BellAlertIcon,
   },
   {
-    title: 'Estadísticas y Progreso',
+    title: 'Estadísticas y Rankings',
     description:
-      'Consulta tu nivel, avances y métricas clave que reflejan tu progreso dentro del juego.',
+      'Consulta rankings, tus avances y perfil clave que reflejan tu progreso dentro del juego.',
     icon: ChartBarIcon,
   },
 ]
