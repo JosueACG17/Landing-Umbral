@@ -39,7 +39,7 @@
 
           <!-- TELÉFONO (desktop: flotando; móvil: centrado arriba de features) -->
           <div
-            class="phone-container opacity-0 fade-in"
+            class="phone-container opacity-100"
             :class="{
               'absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 z-30': isDesktop,
               'mx-auto mb-10': !isDesktop
