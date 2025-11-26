@@ -60,7 +60,7 @@
           >
             {{ showVillains
               ? 'Las sombras también tienen sus enemigos. Cada uno tiene una sed de caos. ¿Te atreves a desatar la oscuridad?'
-              : 'Cada personaje tiene una historia y un rol fundamental en la batalla. Elige tu favorito, domina su estilo y llega a la victoria. ¿Serás el estratega, el protector, el mago o el tirador letal? ¡El destino del Reino está en tus manos!'
+              : 'Cada personaje tiene una historia y un rol fundamental en la batalla. Elige tu favorito, domina su estilo y llega a la victoria. ¡El destino del Reino está en tus manos!'
             }}
           </p>
         </transition>
@@ -168,7 +168,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
-import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon, FireIcon} from '@heroicons/vue/24/solid'
+import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon, FireIcon, ShieldExclamationIcon} from '@heroicons/vue/24/solid'
 
 import vikingoImage from '@/assets/Berserkerr.png'
 import gladiadorImage from '@/assets/Tanquee.png'
@@ -235,7 +235,7 @@ const villains = [
   },
   {
     name: 'Guardian del Umbral',
-    icon: FireIcon,
+    icon: ShieldExclamationIcon,
     character: {
       name: 'Guardian',
       description: 'Asesino implacable de las sombras',
@@ -255,7 +255,7 @@ watch(showVillains, () => {
 })
 
 onMounted(() => {
-  heroes.forEach(r => {
+  [...heroes, ...villains].forEach(r => {
     const img = new Image()
     img.src = r.character.img
   })

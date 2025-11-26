@@ -35,7 +35,7 @@
 
     <!-- Contenido principal -->
     <div class="relative z-10 h-full flex items-center">
-      <div class="container mx-auto flex flex-col justify-center items-center text-center px-4">
+      <div class="container mx-auto flex flex-col justify-center items-center text-center px-4 mt-20 sm:mt-0">
         <!-- Título principal -->
         <div class="space-y-6 max-w-4xl">
           <h1
@@ -74,35 +74,70 @@
           </p>
         </div>
 
-        <!-- Botones y plataformas -->
+        <!-- Nuevo diseño con estadísticas y botones relevantes -->
         <div class="mt-12 space-y-8">
-          <!-- Botones principales -->
+          <!-- Estadísticas épicas -->
+          <div class="flex flex-wrap items-center justify-center gap-8 mb-8 fade-in" style="animation-delay: 0.6s">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-yellow-400" style="font-family: 'Cinzel', serif">{{ championCount }}</div>
+              <div class="text-sm text-yellow-200/80 uppercase tracking-wider mt-1">Reyes</div>
+            </div>
+            <div class="h-12 w-px bg-yellow-500/30"></div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-yellow-400" style="font-family: 'Cinzel', serif">{{ roleCount }}</div>
+              <div class="text-sm text-yellow-200/80 uppercase tracking-wider mt-1">Roles</div>
+            </div>
+            <div class="h-12 w-px bg-yellow-500/30"></div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-orange-400" style="font-family: 'Cinzel', serif">1</div>
+              <div class="text-sm text-orange-200/80 uppercase tracking-wider mt-1">Jefe Final</div>
+            </div>
+            <div class="h-12 w-px bg-yellow-500/30"></div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-orange-400" style="font-family: 'Cinzel', serif">∞</div>
+              <div class="text-sm text-orange-200/80 uppercase tracking-wider mt-1">Súbditos</div>
+            </div>
+          </div>
+
+          <!-- Botones de navegación -->
           <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-            <button
-              class="cursor-pointer group relative px-12 py-5 w-64 overflow-hidden rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-600 text-black font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-600/20"
+            <a
+              href="#campeones"
+              class="cursor-pointer group relative px-12 py-5 w-64 overflow-hidden rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-600 text-black font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-600/50 fade-in"
               style="animation-delay: 0.7s; font-family: 'Montserrat', sans-serif"
             >
-              <span class="relative z-10">COMPRAR AHORA</span>
+              <span class="relative z-10">VER REYES</span>
               <div
                 class="absolute inset-0 z-0 bg-gradient-to-r from-yellow-300 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               ></div>
-            </button>
+            </a>
 
-            <button
-              class="cursor-pointer group relative px-12 py-5 w-64 overflow-hidden rounded-xl bg-black/30 backdrop-blur-sm border-2 border-yellow-500/30 text-yellow-400 font-bold text-lg transition-all duration-300 hover:scale-105 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-600/20"
+            <a
+              href="#app-movil"
+              class="cursor-pointer group relative px-12 py-5 w-64 overflow-hidden rounded-xl bg-black/30 backdrop-blur-sm border-2 border-yellow-500/30 text-yellow-400 font-bold text-lg transition-all duration-300 hover:scale-105 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-600/50 fade-in"
               style="animation-delay: 0.8s; font-family: 'Montserrat', sans-serif"
             >
-              <span class="relative z-10">MIRA EL TRAILER</span>
+              <span class="relative z-10">VER APP MOVIL</span>
               <div
                 class="absolute inset-0 z-0 bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               ></div>
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </div>
+
   </section>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+// Estadísticas dinámicas
+const championCount = ref(4)
+const roleCount = ref(4)
+
+</script>
 
 <style scoped>
 .bg-grid-pattern {
@@ -199,6 +234,7 @@
 /* Mejoras en animaciones */
 .fade-in {
   animation: enhancedFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
 }
 
 @keyframes enhancedFadeIn {

@@ -1,139 +1,83 @@
 <template>
   <section
     id="caracteristicas"
-    class="py-20 bg-gradient-to-b from-black via-gray-950 to-black relative overflow-hidden"
+    class="py-32 bg-black relative overflow-hidden"
     ref="sectionRef"
   >
-    <!-- Efectos de fondo -->
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.03),transparent_70%)]"
-    ></div>
-    <div
-      class="absolute inset-0 pointer-events-none animate-pulse bg-gradient-to-tr from-yellow-700/10 via-transparent to-yellow-400/10"
-    ></div>
-
-    <!-- Partículas de fondo -->
-    <div class="absolute inset-0 opacity-30">
-      <div
-        v-for="n in 20"
-        :key="n"
-        class="particle-star"
-        :style="{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 5}s`,
-        }"
-      ></div>
-    </div>
+    <!-- Simplified background effects -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(234,179,8,0.05),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(234,179,8,0.05),transparent_50%)]"></div>
 
     <!-- Contenido principal -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Encabezado de la sección -->
-      <div class="text-center mb-16 opacity-0" :class="{ 'fade-in-up': isIntersecting }">
-        <div class="flex items-center justify-center mb-4 space-x-4">
-          <div
-            class="h-[1px] w-20 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"
-          ></div>
-          <h2
-            class="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent"
-            style="font-family: 'Cinzel', serif"
+      <!-- Minimalist header with clean typography -->
+      <div class="text-center mb-10 opacity-0" :class="{ 'fade-in-up': isIntersecting }">
+        <p class="text-yellow-400 text-sm tracking-[0.3em] uppercase mb-4 font-light">
+          CARACTERÍSTICAS DEL JUEGO
+        </p>
+        <h2
+            class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 via-yellow-400 to-yellow-600 mb-4 tracking-tight leading-none fade-in"
+            style="
+              animation-delay: 0.1s;
+              text-shadow: 0 0 40px rgba(234, 179, 8, 0.3);
+              font-family: 'Cinzel', serif;
+            "
           >
-            CARACTERÍSTICAS
+            MECÁNICAS
           </h2>
-          <div
-            class="h-[1px] w-20 bg-gradient-to-l from-transparent via-yellow-500 to-transparent"
-          ></div>
-        </div>
-        <p class="text-xl text-yellow-200/90 mt-4" style="font-family: 'Montserrat', sans-serif">
-          Sumérgete en un mundo de fantasía oscura
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+          Descubre las características que hacen de UMBRAL una experiencia única
         </p>
       </div>
 
-      <!-- Grid de características -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Columna de tarjetas de características -->
-        <div class="space-y-8">
-          <div
-            v-for="(feature, index) in features"
-            :key="index"
-            class="group relative overflow-hidden rounded-xl p-6 opacity-0"
-            :class="{ 'slide-in-left': isIntersecting }"
-            :style="{ 'animation-delay': `${0.2 * (index + 1)}s` }"
-          >
-            <!-- Fondo con efecto de brillo -->
-            <div
-              class="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-yellow-900/30 transition-all duration-500 group-hover:from-black/80 group-hover:to-yellow-900/40"
-            ></div>
-            <div
-              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1),transparent_70%)]"
-            ></div>
-
-            <!-- Bordes brillantes -->
-            <div
-              class="absolute inset-0 border border-yellow-600/20 rounded-xl group-hover:border-yellow-500/40 transition-all duration-500"
-            ></div>
-            <div
-              class="absolute inset-[1px] border border-yellow-600/10 rounded-xl group-hover:border-yellow-500/20 transition-all duration-500"
-            ></div>
-
-            <!-- Contenido -->
-            <div class="relative flex items-start space-x-4">
+      <!-- New grid layout with large feature cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          class="group relative overflow-hidden bg-zinc-950 border border-zinc-900 hover:border-yellow-500/30 transition-all duration-700 opacity-0"
+          :class="{ 'slide-in-up': isIntersecting }"
+          :style="{ 'animation-delay': `${0.15 * (index + 1)}s` }"
+        >
+          <!-- Large icon area with glow effect -->
+          <div class="relative h-80 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
               <div
-                class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg border border-yellow-600/50 transition-all duration-500 group-hover:shadow-yellow-500/20 group-hover:scale-110"
+                class="w-24 h-24 rounded-full bg-yellow-500/10 flex items-center justify-center backdrop-blur-sm border border-yellow-500/20 group-hover:scale-110 group-hover:bg-yellow-500/20 transition-all duration-700"
               >
                 <component
                   :is="feature.icon"
-                  class="transition-transform duration-500 group-hover:scale-110"
+                  class="transition-all duration-700 group-hover:scale-110"
                 />
               </div>
-              <div class="flex-1">
-                <h3
-                  class="text-xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent mb-2"
-                  style="font-family: 'Cinzel', serif"
-                >
-                  {{ feature.title }}
-                </h3>
-                <p
-                  class="text-yellow-200/90 leading-relaxed transition-all duration-500 group-hover:text-yellow-100"
-                  style="font-family: 'Montserrat', sans-serif"
-                >
-                  {{ feature.description }}
-                </p>
-              </div>
             </div>
-
-            <!-- Efecto de brillo en hover -->
+            <!-- Subtle hover glow -->
             <div
-              class="absolute -inset-x-1/2 -top-1/2 h-40 w-[200%] opacity-0 group-hover:opacity-10 transition-opacity duration-700"
+              class="absolute inset-0 bg-gradient-to-t from-yellow-500/0 via-yellow-500/0 to-yellow-500/0 group-hover:from-yellow-500/5 group-hover:via-yellow-500/0 transition-all duration-700"
+            ></div>
+          </div>
+
+          <!-- Clean content area -->
+          <div class="p-8 pt-6">
+            <h3
+              class="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-500"
+              style="font-family: 'Cinzel', serif"
             >
-              <div
-                class="absolute inset-0 rotate-12 bg-gradient-to-r from-transparent via-yellow-400 to-transparent blur-2xl"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video/Imagen de características -->
-        <div
-          class="relative opacity-0"
-          :class="{ 'slide-in-right': isIntersecting }"
-          style="animation-delay: 0.6s"
-        >
-          <div class="relative rounded-lg overflow-hidden shadow-2xl">
-            <img
-              src="@/assets/Juego.jpeg"
-              alt="Características del Juego"
-              class="w-full h-auto object-cover"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              {{ feature.title }}
+            </h3>
+            <p class="text-gray-400 leading-relaxed font-light">
+              {{ feature.description }}
+            </p>
           </div>
 
-          <!-- Decoración adicional -->
+          <!-- Minimal accent line -->
           <div
-            class="absolute -inset-0.5 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 blur-2xl opacity-50 -z-10"
+            class="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-yellow-500 to-yellow-600 group-hover:w-full transition-all duration-700"
           ></div>
         </div>
       </div>
+
     </div>
   </section>
 </template>
@@ -202,7 +146,7 @@ const StoryIcon = defineComponent({
           'stroke-linecap': 'round',
           'stroke-linejoin': 'round',
           'stroke-width': '2',
-          d: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+          d: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 16.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
         }),
       ],
     )
@@ -213,65 +157,38 @@ const StoryIcon = defineComponent({
 const features = [
   {
     title: 'Combate Épico',
-    description: 'Sistema de combate fluido con combos devastadores y habilidades únicas.',
+    description: 'Sistema de combate fluido con combos devastadores y habilidades únicas para cada campeón.',
     icon: CombatIcon,
   },
   {
     title: 'Mundo Abierto',
-    description: 'Explora vastos territorios llenos de secretos, mazmorras y criaturas místicas.',
+    description: 'Explora vastos territorios llenos de secretos, mazmorras y criaturas místicas que aguardan.',
     icon: WorldIcon,
   },
   {
     title: 'Historia Profunda',
-    description: 'Una narrativa envolvente con múltiples finales y decisiones que importan.',
+    description: 'Una narrativa envolvente con múltiples finales y decisiones que moldearán tu destino.',
     icon: StoryIcon,
   },
 ]
 
 const { isIntersecting, target: sectionRef } = useIntersectionObserver()
+
 </script>
 
 <style scoped>
-.bg-clip-text {
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.particle-star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: #ffd700;
-  border-radius: 50%;
-  animation: twinkle 5s infinite;
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
 .fade-in-up {
   animation: fadeInUp 1s ease-out forwards;
 }
 
-.slide-in-left {
-  animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.slide-in-right {
-  animation: slideInRight 0.8s ease-out forwards;
+.slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -279,25 +196,14 @@ const { isIntersecting, target: sectionRef } = useIntersectionObserver()
   }
 }
 
-@keyframes slideInLeft {
+@keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 </style>
