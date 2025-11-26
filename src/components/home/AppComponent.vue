@@ -122,7 +122,7 @@
           <!-- Botón de descarga -->
           <div class="mt-10 flex justify-center">
             <a
-              href="https://tu-link.com/download"
+              href="https://github.com/eduardo87DR/Umbral-App/releases/download/v1.0.0/app-release.apk"
               target="_blank"
               class="group relative px-10 py-4 rounded-2xl font-bold text-lg text-black bg-yellow-400 shadow-[0_0_25px_rgba(234,179,8,0.5)] hover:shadow-[0_0_45px_rgba(234,179,8,0.8)] transition-all duration-300 overflow-hidden"
               style="font-family: 'Cinzel', serif"
