@@ -39,7 +39,7 @@
         <div
           v-for="(feature, index) in features"
           :key="index"
-          class="group relative overflow-hidden rounded-2xl backdrop-blur-sm bg-gradient-to-br from-zinc-900/50 to-black/50 border border-zinc-800/50 hover:border-yellow-500/50 transition-all duration-700 opacity-0 hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-500/10"
+          class="group relative overflow-hidden rounded-2xl backdrop-blur-sm bg-gradient-to-br from-zinc-900/60 to-black/50 border border-yellow-900/60 hover:border-yellow-500/50 transition-all duration-700 opacity-0 hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-500/10"
           :class="{ 'slide-in-up': isIntersecting }"
           :style="{ 'animation-delay': `${0.15 * (index + 1)}s` }"
         >
