@@ -1,85 +1,67 @@
 <template>
   <section id="app-movil" class="py-20 bg-black relative overflow-hidden">
-    <!-- Efectos de fondo -->
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.03),transparent_70%)]"
-    ></div>
-    <div
-      class="absolute inset-0 pointer-events-none animate-pulse bg-gradient-to-tr from-yellow-700/10 via-transparent to-yellow-400/10"
-    ></div>
 
-    <!-- Contenido principal -->
+    <!-- FONDO -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.03),transparent_70%)]"></div>
+    <div class="absolute inset-0 pointer-events-none animate-pulse bg-gradient-to-tr from-yellow-700/10 via-transparent to-yellow-400/10"></div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Encabezado con animación -->
+
+      <!-- ENCABEZADO -->
       <div class="text-center mb-12 opacity-0 fade-in-up" ref="titleRef">
         <div class="flex items-center justify-center mb-4 space-x-4">
-          <div
-            class="h-[1px] w-20 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"
-          ></div>
+          <div class="h-[1px] w-20 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"></div>
           <h2
             class="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent"
             style="font-family: 'Cinzel', serif"
           >
             NUESTRA APP
           </h2>
-          <div
-            class="h-[1px] w-20 bg-gradient-to-l from-transparent via-yellow-500 to-transparent"
-          ></div>
+          <div class="h-[1px] w-20 bg-gradient-to-l from-transparent via-yellow-500 to-transparent"></div>
         </div>
         <p class="text-xl text-yellow-200/90 mt-4" style="font-family: 'Montserrat', sans-serif">
           Experimenta la aventura en la palma de tu mano
         </p>
       </div>
 
-      <!-- Grid con mockup de teléfono y features -->
+      <!-- GRID PRINCIPAL -->
       <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Mockup de teléfono 3D -->
+
+        <!-- COLUMNA IZQUIERDA -->
         <div class="relative flex items-center justify-center perspective-1000">
-          <!-- Efectos de fondo del teléfono -->
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-yellow-400/10 to-yellow-500/20 blur-3xl animate-pulse"
-          ></div>
 
-          <!-- Círculos decorativos flotantes -->
+          <!-- MANO (solo desktop) -->
           <div
-            class="absolute top-1/4 -left-12 w-24 h-24 bg-yellow-500/10 rounded-full blur-2xl animate-float"
-          ></div>
-          <div
-            class="absolute bottom-1/4 -right-12 w-32 h-32 bg-yellow-400/10 rounded-full blur-2xl animate-float-delayed"
-          ></div>
+            class="hidden lg:block absolute bottom-0 left-1/2 -translate-x-[50%] translate-y-[50%] w-[527px] pointer-events-none z-10 hand-hold"
+          >
+            <img :src="handHoldImage" alt="Hand" class="w-full opacity-100" />
+          </div>
 
-          <!-- Contenedor del teléfono con transformación 3D -->
-          <div class="relative phone-container opacity-0 fade-in" style="animation-delay: 0.3s">
-            <!-- Marco del teléfono -->
+          <!-- TELÉFONO (desktop: flotando; móvil: centrado arriba de features) -->
+          <div
+            class="phone-container opacity-0 fade-in"
+            :class="{
+              'absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 z-30': isDesktop,
+              'mx-auto mb-10': !isDesktop
+            }"
+          >
             <div
-              class="relative w-[300px] h-[600px] bg-black rounded-[50px] p-3 shadow-2xl transform-3d hover:rotate-y-5 transition-all duration-500"
+              class="relative w-[220px] h-[450px] bg-black rounded-[45px] p-3 shadow-2xl transform-3d hover:rotate-y-5 transition-all duration-500"
             >
-              <!-- Notch superior -->
-              <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-7 bg-black rounded-b-3xl z-20"
-              ></div>
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-6 bg-black rounded-b-3xl z-20"></div>
 
-              <!-- Brillo del marco -->
-              <div
-                class="absolute inset-0 rounded-[50px] border-2 border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.3)]"
-              ></div>
-              <div class="absolute inset-[2px] rounded-[48px] border border-yellow-400/20"></div>
+              <div class="absolute inset-0 rounded-[45px] border-2 border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.3)]"></div>
+              <div class="absolute inset-[2px] rounded-[43px] border border-yellow-400/20"></div>
 
-              <!-- Pantalla del teléfono -->
-              <div class="relative w-full h-full bg-gray-900 rounded-[42px] overflow-hidden">
-                <!-- Aquí va la imagen de tu app -->
+              <div class="relative w-full h-full bg-gray-900 rounded-[40px] overflow-hidden">
                 <img :src="appScreenshot" alt="App Screenshot" class="w-full h-full object-cover" />
               </div>
             </div>
-
-            <!-- Sombra del teléfono -->
-            <div
-              class="absolute inset-0 top-8 bg-gradient-radial from-yellow-500/20 via-yellow-500/5 to-transparent blur-3xl -z-10"
-            ></div>
           </div>
+
         </div>
 
-        <!-- Features de la app -->
+        <!-- FEATURES -->
         <div class="space-y-8">
           <div
             v-for="(feature, index) in features"
@@ -87,26 +69,16 @@
             class="flex gap-6 items-start opacity-0 fade-in-left group"
             :style="{ animationDelay: `${0.5 + index * 0.15}s` }"
           >
-            <!-- Ícono -->
             <div class="relative flex-shrink-0">
-              <div
-                class="w-14 h-14 bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 rounded-2xl flex items-center justify-center border border-yellow-500/30"
-              >
-                <div
-                  class="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-yellow-500/20 rounded-2xl group-hover:from-yellow-400/20 transition-all duration-300"
-                ></div>
+              <div class="w-14 h-14 bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 rounded-2xl flex items-center justify-center border border-yellow-500/30">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-yellow-500/20 rounded-2xl group-hover:from-yellow-400/20 transition-all duration-300"></div>
                 <component :is="feature.icon" class="relative z-10 h-8 w-8 animate-pulse" />
               </div>
-              <!-- Glow effect -->
-              <div
-                class="absolute inset-0 bg-yellow-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
             </div>
 
-            <!-- Contenido -->
             <div class="flex-1">
               <h3
-                class="text-xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent mb-2 group-hover:from-yellow-400 group-hover:to-yellow-600 transition-all duration-300"
+                class="text-xl font-bold bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent mb-2"
                 style="font-family: 'Cinzel', serif"
               >
                 {{ feature.title }}
@@ -119,8 +91,9 @@
               </p>
             </div>
           </div>
-          <!-- Botón de descarga -->
-          <div class="mt-10 flex justify-center">
+
+          <!-- Botón -->
+          <div class="mt-10 flex justify-center lg:justify-start">
             <a
               href="https://github.com/eduardo87DR/Umbral-App/releases/download/v1.0.0/app-release.apk"
               target="_blank"
@@ -128,36 +101,41 @@
               style="font-family: 'Cinzel', serif"
             >
               <span class="relative z-10" style="font-family: 'Montserrat', sans-serif">Descargar App</span>
-
-              <!-- Efecto brillo -->
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-              ></div>
-
-              <!-- Shine animation -->
-              <div
-                class="absolute top-0 left-0 w-1/3 h-full bg-white/40 blur-xl translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-700"
-              ></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div class="absolute top-0 left-0 w-1/3 h-full bg-white/40 blur-xl translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-700"></div>
             </a>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 </template>
-
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import {
   CalendarDaysIcon,
   BookOpenIcon,
   BellAlertIcon,
   ChartBarIcon,
 } from '@heroicons/vue/24/solid'
+
 import AppUmbral from '@/assets/Umbral2.jpg'
+import HandHold from '@/assets/Mano.png'
 
 const titleRef = ref<HTMLElement | null>(null)
 const appScreenshot = ref(AppUmbral)
+const handHoldImage = ref(HandHold)
+
+const isDesktop = ref(false)
+
+onMounted(() => {
+  const update = () => {
+    isDesktop.value = window.innerWidth >= 1024
+  }
+  update()
+  window.addEventListener('resize', update)
+})
 
 const features = [
   {
@@ -180,12 +158,11 @@ const features = [
   {
     title: 'Estadísticas y Progreso',
     description:
-      'Consulta tu nivel, avances, revisiones pendientes y métricas clave que reflejan tu progreso dentro del juego.',
+      'Consulta tu nivel, avances y métricas clave que reflejan tu progreso dentro del juego.',
     icon: ChartBarIcon,
   },
 ]
 </script>
-
 <style scoped>
 .bg-clip-text {
   -webkit-background-clip: text;
@@ -195,12 +172,10 @@ const features = [
 .perspective-1000 {
   perspective: 1000px;
 }
-
 .transform-3d {
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
 }
-
 .rotate-y-5 {
   transform: rotateY(5deg) rotateX(-2deg);
 }
@@ -209,89 +184,39 @@ const features = [
   transform: rotateY(5deg) rotateX(-2deg) translateY(-8px);
 }
 
+.hand-hold {
+  transform-origin: bottom center;
+  transition: transform 0.4s ease;
+}
+
+@media (min-width: 1024px) {
+  .phone-container:hover ~ .hand-hold {
+    transform: translateY(-6px) rotate(-2deg) scale(1.02);
+  }
+}
+
+/* Animaciones */
 .fade-in-up {
   animation: fadeInUp 1s ease-out forwards;
 }
-
 .fade-in {
   animation: fadeIn 1s ease-out forwards;
 }
-
 .fade-in-left {
   animation: fadeInLeft 0.8s ease-out forwards;
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes shine {
-  to {
-    transform: translateX(100%);
-  }
-}
-
-.animate-shine {
-  animation: shine 3s infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes floatDelayed {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: floatDelayed 8s ease-in-out infinite;
-  animation-delay: 1s;
-}
-
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
 </style>
