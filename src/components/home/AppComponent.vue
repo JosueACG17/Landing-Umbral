@@ -119,7 +119,7 @@ import {
   ChartBarIcon,
 } from '@heroicons/vue/24/solid'
 
-import AppUmbral from '@/assets/Umbral2.jpg'
+import AppUmbral from '../../../public/Umbral2.jpg'
 import HandHold from '@/assets/Mano.png'
 
 const titleRef = ref<HTMLElement | null>(null)
