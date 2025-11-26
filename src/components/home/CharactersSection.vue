@@ -6,12 +6,10 @@
     <div
       class="w-full max-w-7xl flex flex-col md:flex-row items-center md:items-stretch gap-8 px-4 sm:px-6 lg:px-8 relative z-10"
     >
-      <!-- Selección y texto -->
       <div
         class="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left fade-in"
         style="animation-delay: 0.1s"
       >
-        <!-- Toggle para cambiar entre Campeones y Villanos -->
         <div class="mb-6 flex items-center gap-4 bg-gray-800/50 rounded-full p-2 border border-gray-700">
           <button
             @click="showVillains = false"
@@ -22,7 +20,7 @@
                 : 'text-gray-400 hover:text-white'
             ]"
           >
-            ⚔️ CAZADORES
+            CAZADORES
           </button>
           <button
             @click="showVillains = true"
@@ -33,15 +31,15 @@
                 : 'text-gray-400 hover:text-white'
             ]"
           >
-            💀 ENEMIGOS
+            ENEMIGOS
           </button>
         </div>
 
         <h3 class="text-lg text-gray-200 mb-2 tracking-widest uppercase">DESCUBRE A LOS</h3>
-        <!-- Título dinámico según el tipo -->
+
         <transition name="fade" mode="out-in">
           <h2
-            :key="showVillains"
+            :key="showVillains ? 'villains-title' : 'heroes-title'"
             class="text-5xl sm:text-6xl font-extrabold mb-4 drop-shadow"
             :class="showVillains ? 'text-red-500' : 'text-yellow-400'"
             style="
@@ -55,12 +53,10 @@
           </h2>
         </transition>
 
-        <!-- Descripción dinámica -->
         <transition name="fade" mode="out-in">
           <p
-            :key="showVillains"
-            class="text-base sm:text-lg text-gray-300 mb-6 max-w-md slide-up"
-            style="animation-delay: 0.2s"
+            :key="showVillains ? 'villains-desc' : 'heroes-desc'"
+            class="text-base sm:text-lg text-gray-300 mb-6 max-w-md "
           >
             {{ showVillains
               ? 'Las sombras también tienen sus enemigos. Cada uno tiene una sed de caos. ¿Te atreves a desatar la oscuridad?'
@@ -69,16 +65,17 @@
           </p>
         </transition>
 
-        <!-- Roles dinámicos basados en el tipo -->
         <transition name="fade" mode="out-in">
-          <div :key="showVillains" class="flex flex-row flex-wrap gap-8 justify-center md:justify-start mt-8">
+          <div
+            :key="showVillains ? 'villains-roles' : 'heroes-roles'"
+            class="flex flex-row flex-wrap gap-8 justify-center md:justify-start mt-8"
+          >
             <button
               v-for="(role, idx) in currentRoles"
               :key="role.name"
               @click="selectedIdx = idx"
               class="flex flex-col items-center group focus:outline-none relative"
             >
-              <!-- Glow sutil cuando está seleccionado -->
               <div
                 v-if="selectedIdx === idx"
                 class="absolute inset-0 rounded-full blur-xl animate-pulse"
@@ -122,12 +119,10 @@
         </transition>
       </div>
 
-      <!-- Imagen y selección de personaje -->
       <div class="flex-1 flex flex-col items-center justify-center relative">
         <div
           class="relative w-[340px] h-[340px] md:w-[420px] md:h-[420px] flex items-center justify-center"
         >
-          <!-- Círculo decorativo dinámico -->
           <div
             class="absolute w-full h-full rounded-full animate-pulse"
             :class="showVillains
@@ -139,7 +134,6 @@
             :class="showVillains ? 'border-red-600/50' : 'border-yellow-500/50'"
           ></div>
 
-          <!-- Imagen con transición suave -->
           <transition name="character-fade" mode="out-in">
             <img
               :key="`${showVillains}-${selectedIdx}`"
@@ -156,7 +150,6 @@
           </transition>
         </div>
 
-        <!-- Info del personaje con transición -->
         <transition name="fade" mode="out-in">
           <div :key="`${showVillains}-${selectedIdx}`" class="mt-6 text-center">
             <h4
