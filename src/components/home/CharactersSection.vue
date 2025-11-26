@@ -11,86 +11,138 @@
         class="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left fade-in"
         style="animation-delay: 0.1s"
       >
-        <h3 class="text-lg text-gray-200 mb-2 tracking-widest uppercase">ELIGE TU</h3>
-        <h2
-          class="text-5xl sm:text-6xl font-extrabold text-yellow-400 mb-4 drop-shadow"
-          style="
-            font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
-            letter-spacing: 0.03em;
-          "
-        >
-          <span class="text-yellow-500 animate-pulse">CAMPEÓN</span>
-        </h2>
-        <p
-          class="text-base sm:text-lg text-gray-300 mb-6 max-w-md slide-up"
-          style="animation-delay: 0.2s"
-        >
-          Cada personaje tiene una historia y un rol fundamental en la batalla. Elige tu favorito,
-          domina su estilo y llega a la victoria. ¿Serás el estratega, el protector, el mago o el
-          tirador letal? ¡El destino del Reino está en tus manos!
-        </p>
-        <div class="flex flex-row flex-wrap gap-8 justify-center md:justify-start mt-8">
+        <!-- Toggle para cambiar entre Campeones y Villanos -->
+        <div class="mb-6 flex items-center gap-4 bg-gray-800/50 rounded-full p-2 border border-gray-700">
           <button
-            v-for="(role, idx) in roles"
-            :key="role.name"
-            @click="selectedIdx = idx"
-            class="flex flex-col items-center group focus:outline-none relative"
+            @click="showVillains = false"
+            :class="[
+              'px-6 py-2 rounded-full font-bold transition-all duration-300',
+              !showVillains
+                ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/50'
+                : 'text-gray-400 hover:text-white'
+            ]"
           >
-            <!-- Glow sutil cuando está seleccionado -->
-            <div
-              v-if="selectedIdx === idx"
-              class="absolute inset-0 rounded-full blur-xl animate-pulse"
-              style="background: rgba(234, 179, 8, 0.4); transform: scale(1.5)"
-            ></div>
-
-            <component
-              :is="role.icon"
-              :class="[
-                'mb-2 transition-all cursor-pointer relative z-10',
-                selectedIdx === idx
-                  ? 'scale-125 drop-shadow-lg'
-                  : 'opacity-60 group-hover:opacity-100 group-hover:scale-110',
-                'text-5xl',
-                'text-yellow-500',
-              ]"
-              style="
-                height: 56px;
-                width: 56px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              "
-            />
-            <span
-              :class="[
-                'mt-2 text-base tracking-wide transition-all',
-                selectedIdx === idx ? 'text-white' : 'text-gray-600',
-              ]"
-              style="
-                font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
-                letter-spacing: 0.03em;
-              "
-            >
-              {{ role.name }}
-            </span>
+            ⚔️ CAZADORES
+          </button>
+          <button
+            @click="showVillains = true"
+            :class="[
+              'px-6 py-2 rounded-full font-bold transition-all duration-300',
+              showVillains
+                ? 'bg-red-600 text-white shadow-lg shadow-red-600/50'
+                : 'text-gray-400 hover:text-white'
+            ]"
+          >
+            💀 ENEMIGOS
           </button>
         </div>
+
+        <h3 class="text-lg text-gray-200 mb-2 tracking-widest uppercase">DESCUBRE A LOS</h3>
+        <!-- Título dinámico según el tipo -->
+        <transition name="fade" mode="out-in">
+          <h2
+            :key="showVillains"
+            class="text-5xl sm:text-6xl font-extrabold mb-4 drop-shadow"
+            :class="showVillains ? 'text-red-500' : 'text-yellow-400'"
+            style="
+              font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
+              letter-spacing: 0.03em;
+            "
+          >
+            <span :class="showVillains ? 'text-red-600 animate-pulse' : 'text-yellow-500 animate-pulse'">
+              {{ showVillains ? 'ENEMIGOS' : 'CAZADORES' }}
+            </span>
+          </h2>
+        </transition>
+
+        <!-- Descripción dinámica -->
+        <transition name="fade" mode="out-in">
+          <p
+            :key="showVillains"
+            class="text-base sm:text-lg text-gray-300 mb-6 max-w-md slide-up"
+            style="animation-delay: 0.2s"
+          >
+            {{ showVillains
+              ? 'Las sombras también tienen sus enemigos. Cada uno tiene una sed de caos. ¿Te atreves a desatar la oscuridad?'
+              : 'Cada personaje tiene una historia y un rol fundamental en la batalla. Elige tu favorito, domina su estilo y llega a la victoria. ¿Serás el estratega, el protector, el mago o el tirador letal? ¡El destino del Reino está en tus manos!'
+            }}
+          </p>
+        </transition>
+
+        <!-- Roles dinámicos basados en el tipo -->
+        <transition name="fade" mode="out-in">
+          <div :key="showVillains" class="flex flex-row flex-wrap gap-8 justify-center md:justify-start mt-8">
+            <button
+              v-for="(role, idx) in currentRoles"
+              :key="role.name"
+              @click="selectedIdx = idx"
+              class="flex flex-col items-center group focus:outline-none relative"
+            >
+              <!-- Glow sutil cuando está seleccionado -->
+              <div
+                v-if="selectedIdx === idx"
+                class="absolute inset-0 rounded-full blur-xl animate-pulse"
+                :style="showVillains
+                  ? 'background: rgba(220, 38, 38, 0.4); transform: scale(1.5)'
+                  : 'background: rgba(234, 179, 8, 0.4); transform: scale(1.5)'"
+              ></div>
+
+              <component
+                :is="role.icon"
+                :class="[
+                  'mb-2 transition-all cursor-pointer relative z-10',
+                  selectedIdx === idx
+                    ? 'scale-125 drop-shadow-lg'
+                    : 'opacity-60 group-hover:opacity-100 group-hover:scale-110',
+                  'text-5xl',
+                  showVillains ? 'text-red-600' : 'text-yellow-500',
+                ]"
+                style="
+                  height: 56px;
+                  width: 56px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              />
+              <span
+                :class="[
+                  'mt-2 text-base tracking-wide transition-all',
+                  selectedIdx === idx ? 'text-white' : 'text-gray-600',
+                ]"
+                style="
+                  font-family: 'Oswald', Impact, 'Arial Black', sans-serif;
+                  letter-spacing: 0.03em;
+                "
+              >
+                {{ role.name }}
+              </span>
+            </button>
+          </div>
+        </transition>
       </div>
+
       <!-- Imagen y selección de personaje -->
       <div class="flex-1 flex flex-col items-center justify-center relative">
         <div
           class="relative w-[340px] h-[340px] md:w-[420px] md:h-[420px] flex items-center justify-center"
         >
-          <!-- Círculo decorativo -->
+          <!-- Círculo decorativo dinámico -->
           <div
-            class="absolute w-full h-full rounded-full bg-gradient-to-r from-yellow-500/30 to-yellow-700/30 animate-pulse"
+            class="absolute w-full h-full rounded-full animate-pulse"
+            :class="showVillains
+              ? 'bg-gradient-to-r from-red-600/30 to-red-800/30'
+              : 'bg-gradient-to-r from-yellow-500/30 to-yellow-700/30'"
           ></div>
-          <div class="absolute w-[95%] h-[95%] rounded-full border-2 border-yellow-500/50"></div>
+          <div
+            class="absolute w-[95%] h-[95%] rounded-full border-2"
+            :class="showVillains ? 'border-red-600/50' : 'border-yellow-500/50'"
+          ></div>
 
           <!-- Imagen con transición suave -->
           <transition name="character-fade" mode="out-in">
             <img
-              :key="selectedIdx"
+              :key="`${showVillains}-${selectedIdx}`"
               :src="selected.img"
               :alt="selected.name"
               :class="[
@@ -106,8 +158,11 @@
 
         <!-- Info del personaje con transición -->
         <transition name="fade" mode="out-in">
-          <div :key="selectedIdx" class="mt-6 text-center">
-            <h4 class="text-2xl font-bold text-yellow-500 animate-pulse mb-1">
+          <div :key="`${showVillains}-${selectedIdx}`" class="mt-6 text-center">
+            <h4
+              class="text-2xl font-bold animate-pulse mb-1"
+              :class="showVillains ? 'text-red-600' : 'text-yellow-500'"
+            >
               {{ selected.name }}
             </h4>
             <p class="text-gray-300 text-sm">{{ selected.description }}</p>
@@ -119,15 +174,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon } from '@heroicons/vue/24/solid'
+import { ref, computed, onMounted, watch } from 'vue'
+import { BoltIcon, UserGroupIcon, SparklesIcon, EyeDropperIcon, FireIcon} from '@heroicons/vue/24/solid'
 
 import vikingoImage from '@/assets/Berserkerr.png'
 import gladiadorImage from '@/assets/Tanquee.png'
 import magoImage from '@/assets/Magoo.png'
 import tiradorImage from '@/assets/Arquero.png'
+import subditoImage from '@/assets/Subdito.png'
+import jefeImage from '@/assets/Jefe.png'
 
-const roles = [
+const showVillains = ref(false)
+
+const heroes = [
   {
     name: 'Berserker',
     icon: BoltIcon,
@@ -169,16 +228,45 @@ const roles = [
     },
   },
 ]
+
+const villains = [
+  {
+    name: 'Subdito',
+    icon: FireIcon,
+    character: {
+      name: 'Subdito',
+      description: 'Señor del caos y la destrucción',
+      img: subditoImage,
+      class: '',
+    },
+  },
+  {
+    name: 'Guardian del Umbral',
+    icon: FireIcon,
+    character: {
+      name: 'Guardian',
+      description: 'Asesino implacable de las sombras',
+      img: jefeImage,
+      class: 'w-[300px] h-[300px] sm:w-[250px] sm:h-[250px] md:w-[400px] md:h-[400px]',
+    },
+  },
+]
+
 const selectedIdx = ref(0)
-const selected = computed(() => roles[selectedIdx.value].character)
+
+const currentRoles = computed(() => showVillains.value ? villains : heroes)
+const selected = computed(() => currentRoles.value[selectedIdx.value].character)
+
+watch(showVillains, () => {
+  selectedIdx.value = 0
+})
 
 onMounted(() => {
-  roles.forEach(r => {
+  heroes.forEach(r => {
     const img = new Image()
     img.src = r.character.img
   })
 })
-
 </script>
 
 <style scoped>
